@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <link rel="shortcut icon" href="bgfevicon.png" type="image/x-icon">
-  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <meta charset="utf-8">
 
   <title>Biota-Gen</title>
@@ -24,6 +24,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+
 
 <style>
 html *{
@@ -427,7 +428,7 @@ footer p a:hover {
 </style>
 </head>
 
-<body>
+<body ng-app="">
  <div class="profile-page">
   <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg" color-on-scroll="1030"
     id="sectionsNav">
@@ -490,9 +491,11 @@ footer p a:hover {
                 <img src="Karan-profile.png" alt="Circle Image" class="ProfilePhotoRounded ">
               </div>
               <div class="name">
-                <h2 class="title">Karan Shinde</h2>
-                <!-- <h2 class="title" *ngIf="!isEnglish;"> करण शिंदे</h2> -->
-                <!-- <button (click)="ChangeLang()">Click Me</button> -->
+                <h2 class="title" ng-if="!myVar">Karan Shinde</h2>
+               <h2 class="title" ng-if="myVar"> करण शिंदे</h2> 
+
+              <input type="checkbox" ng-model="myVar" ng-init="myVar = true">
+              
                 <h5>"Software Engineer"</h5>
                 <a href="https://www.facebook.com/karan.shinde.714" class="btn btn-just-icon btn-link"
                   style="background-color: darkcyan;"><i class="fa fa-facebook-square" style="color: white;"></i></a>
