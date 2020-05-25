@@ -2,9 +2,7 @@
 
 <html lang="en">
 <head>
-<link rel="icon" 
-      type="image/png" 
-      href="BGfevicon.png">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   
   <meta charset="utf-8">
 
@@ -27,7 +25,8 @@
   <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
 
-<style>html *{
+<style>
+html *{
     -webkit-font-smoothing: antialiased;
 }
 
@@ -36,11 +35,11 @@
 }
 
 .h5, h5 {
-    font-size: .75rem !important;
-    font-weight: 500;
-    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size: 0.95rem !important;
+    font-weight: 600;
     line-height: 1.5em;
     text-transform: uppercase;
+    font-family: "Roboto Slab","Times New Roman",serif;
 }
 
 .name h6 {
@@ -167,7 +166,7 @@ a.material-icons {
 }
 
 .profile-page .profile img {
-    max-width: 160px;
+    max-width: 250px;
     width: 100%;
     margin: 0 auto;
     -webkit-transform: translate3d(0,-50%,0);
@@ -175,24 +174,19 @@ a.material-icons {
     -o-transform: translate3d(0,-50%,0);
     -ms-transform: translate3d(0,-50%,0);
     transform: translate3d(0,-50%,0);
+    border-radius: 50%;
+    box-shadow: 0 16px 24px 2px rgba(224, 9, 9, 0.14), 0 6px 30px 5px rgba(221, 12, 12, 0.12), 0 8px 10px -5px rgba(0,0,0,.2);
 }
 
-.img-raised {
-    box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
-}
-
-.rounded-circle {
-    border-radius: 50%!important;
-}
-
-.img-fluid, .img-thumbnail {
-    max-width: 100%;
-    height: auto;
+.ProfilePhotoRounded{
+ width: 400px;
+    /* border-radius: 50% !important; */
+    box-shadow: 0 5px 15px -8px rgba(255, 255, 255, 0.24), 0 8px 10px -5px rgba(0,0,0,.2);
 }
 
 .title {
     margin-top: 30px;
-    margin-bottom: 25px;
+    margin-bottom: 12px;
     min-height: 32px;
     color: #3C4858;
     font-weight: 700;
@@ -274,7 +268,7 @@ p {
 }
 
 .profile-page .profile .name{
-    margin-top: -80px;
+    margin-top: -140px;
 }
 
 img.rounded {
@@ -331,9 +325,6 @@ img.rounded {
 }
 
 /* dropdown */
-
-
-
 
 .dropdown-menu {
     position: absolute;
@@ -411,7 +402,7 @@ img.rounded {
 /* footer */
 
 footer{
-    margin-top: 10px;
+    margin-top:30px;
     color: #555;
     padding: 25px;
     font-weight: 300;
