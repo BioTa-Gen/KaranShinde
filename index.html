@@ -28,6 +28,10 @@
     -webkit-font-smoothing: antialiased;
 }
 
+.TextLeftClass{
+    text-align: -webkit-auto;
+}
+
 .h5, h5 {
     font-size: .75rem !important;
     font-weight: 500;
@@ -55,11 +59,11 @@
 }
 
 .navbar.navbar-transparent {
-    z-index: 1030;
+    /* z-index: 1030; */
     background-color: transparent!important;
     box-shadow: none !important;
     padding-top: 25px;
-    color: #fff;
+    color: #ffffff;
 }
 
 .navbar .navbar-brand {
@@ -102,7 +106,7 @@
     line-height: 20px;
 }
 
-a .material-icons {
+a.material-icons {
     vertical-align: middle;
 }
 
@@ -139,16 +143,18 @@ a .material-icons {
     content: "";
 }
 
-
+/* .header-filter::before {
+     background: rgba(100, 100, 100, 0.5); 
+} */
 
 .main-raised {
-    margin: -60px 30px 0;
+    margin: -220px 30px 0;
     border-radius: 6px;
     box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
 }
 
 .main {
-    background: #FFF;
+    background: #FFFFFF;
     position: relative;
     z-index: 3;
 }
@@ -424,109 +430,16 @@ footer p a:hover {
     text-decoration: none;
 }
 
-
-/* .profile-badge{
-    border:1px solid #c1c1c1;
-    padding:5px;
-    position: relative;
-}
-.profile-badge img{
-    height: 350px;
-    width: 100%;
-}
-.user-detail{
-    background-color: #fff;
-    position: relative;
-    padding:65px 0px 10px 0px;
-    color:#8B8B89;
-}
-.user-detail h3{
-    margin: 0px;
-    margin:0px 0px 5px 0px;
-    color: #000;
-}
-.user-detail p{
-    font-size:14px;
-}
-.user-detail .btn{
-    margin-bottom:10px;
-    background-color: #fff;
-    border:1px solid #DEDEDE;
-    border-radius: 0px;
-    color:black;
-}
-.user-detail .btn i{
-    color:#D35B4D;
-    padding-right:18px;
-}
-.container .img{
-    text-align:center;
-}
-.container .details{
-    border-left:3px solid #ded4da;
-}
-.container .details p{
-    font-size:15px;
-    font-weight:bold;
-}
-.profile-pic-block
-{
-    transform: translateX(-50%);
-    top: 140px;
-    z-index: 1001;
-    left: 50%;
- min-height: 35%;
-    position: absolute;
-}
-.profile-pic{
-    height:150px;
-    width:150px;
-   
-}
-.profile-pic img{
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-    box-shadow: 0px 0px 5px 0px #c1c1c1;
-}
-.hover-detail{
-    background-color: #fff;
-    border:1px solid #7C7C7C;
-    position: absolute;
-    box-shadow: 0px 0px 6px 0px #7C7C7C; 
-    display:none;
-    top: 145px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.hover-detail:hover,
-.user-detail .btn:hover ~ .hover-detail{
-    display: block;
-}
-.checkbox label{
-    text-align: left;
-    width: 100%;
-}
-.Following label{
-    padding-bottom: 5px;
-    border-bottom:1px solid #c2c2c2;
-}
-.checkbox label span{
-    float:right;
-}
-.hover-detail{
-    padding:5px;
-} */
 </style>
 </head>
 
 <body>
  <div class="profile-page">
-  <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg" 
-  color-on-scroll="1010" id="sectionsNav">
+  <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg" color-on-scroll="1030"
+    id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="#" target="_blank">Profile</a>
+        <a class="navbar-brand" href="#" target="_blank"><strong>Biodata</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="true"
           aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -571,8 +484,7 @@ footer p a:hover {
     </div>
   </nav>
 
-  <div class="page-header header-filter" data-parallax="true"
-    style="background-image:url('paint.jpg');">
+  <div class="page-header header-filter" data-parallax="true" style="background-image:url('../../assets/paint.jpg');">
   </div>
   <div class="main main-raised">
     <div class="profile-content">
@@ -581,12 +493,13 @@ footer p a:hover {
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile">
               <div class="avatar">
-                <img style="width:500px;" 
-                  src="Karan-profile.png"
-                  alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                <img style="width:500px;" src="../../assets/Karan-profile.png" alt="Circle Image"
+                  class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
-                <h2 class="title">Karan Shinde</h2>
+                <h2 class="title" *ngIf="isEnglish">Karan Shinde</h2>
+                <h2 class="title" *ngIf="!isEnglish;"> करण शिंदे</h2>
+                <button (click)="ChangeLang()">Click Me</button>
                 <h5>Software Engineer</h5>
                 <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-dribbble"></i></a>
                 <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
@@ -596,24 +509,29 @@ footer p a:hover {
           </div>
         </div>
         <div class="description text-center">
-          <p style="font-weight:500; font-size:17px;"><em>Software Engineer at <strong> <a href="https://new.siemens.com/in/en.html"> Siemens India Pvt Ltd.</a> </strong> From Last 3 Years.</em></p>
-          <p style="font-weight:500; font-size:17px;"><em>I am an <strong><a href="https://en.wikipedia.org/wiki/Web_developer"> Web Developer</a></strong>. I love To <strong> Travel</strong> and <strong>Play Badminton</strong>.</em></p>
-          <p style="font-weight:500; font-size:17px;"><em>I have Completed <strong> MCA</strong> from <strong><a href="http://www.sinhgad.edu/">Sinhgad Institutes.</a></strong></em></p>
+          <p style="font-weight:500; font-size:17px;"><em>Software Engineer at <strong> <a
+                  href="https://new.siemens.com/in/en.html"> Siemens India Pvt Ltd.</a> </strong> From Last 3
+              Years.</em></p>
+          <p style="font-weight:500; font-size:17px;"><em>I am an <strong><a
+                  href="https://en.wikipedia.org/wiki/Web_developer"> Web Developer</a></strong>. I love To <strong>
+                Travel</strong> and <strong>Play Badminton</strong>.</em></p>
+          <p style="font-weight:500; font-size:17px;"><em>I have Completed <strong> MCA</strong> from <strong><a
+                  href="http://www.sinhgad.edu/">Sinhgad Institutes.</a></strong></em></p>
         </div>
         <div class="row">
-          <div class="col-md-8 ml-auto mr-auto">
-            <div class="profile-tabs">
+          <div class="col-md-8 ml-auto mr-auto ">
+            <div class="profile-tabs ">
               <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link active" href="#Work" role="tab" data-toggle="tab">
                     <i class="material-icons">business_center</i>
-                    Work History
+                    Personal Information
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#Education" role="tab" data-toggle="tab">
                     <i class="material-icons">school</i>
-                    Education History
+                    Family Information
                   </a>
                 </li>
                 <li class="nav-item">
@@ -641,136 +559,178 @@ footer p a:hover {
 
         <div class="tab-content tab-space">
           <div class="tab-pane active text-center " id="Work">
-            <div class="row">
-              <div class="col-md-6 ml-auto mr-auto">
+            <div class="col-md-6 ml-auto mr-auto shadow-lg p-4 mb-4 bg-white rounded">
+              <div class=" card-body text-center">
+                <div class="row mb-2" style="text-align-last: left;">
+                  <div class="col-sm-6 "><strong class="text-uppercase">Name:</strong> </div>
+                  <div class="col-sm-6">Karan Baban Shinde</div>
+                </div>
+                <div class="row mb-2" style="text-align-last: left;">
+                  <div class="col-sm-6"><strong class="text-uppercase">Birth Date:</strong> </div>
+                  <div class="col-sm-6">2/12/1993</div>
+                </div>
+                <div class="row mb-2" style="text-align-last: left;">
+                  <div class="col-sm-6"><strong class="text-uppercase">Birth Place:</strong> </div>
+                  <div class="col-sm-6">Aurangabad</div>
+                </div>
+                <div class="row mb-2" style="text-align-last: left;">
+                  <div class="col-sm-6"><strong class="text-uppercase">Birth Time:</strong> </div>
+                  <div class="col-sm-6">09:30AM</div>
+                </div>
+                <div class="row mb-2" style="text-align-last: left;">
+                  <div class="col-sm-6"><strong class="text-uppercase">Colour:</strong> </div>
+                  <div class="col-sm-6">Blonde</div>
+                </div>
+                <div class="row mb-2" style="text-align-last: left;">
+                  <div class="col-sm-6"><strong class="text-uppercase">Height:</strong> </div>
+                  <div class="col-sm-6">5.8 Feet</div>
+                </div>
+                <div class="row mb-2" style="text-align-last: left;">
+                  <div class="col-sm-6"><strong class="text-uppercase">Blood Group:</strong> </div>
+                  <div class="col-sm-6">B <sup>Ve+</sup></div>
+                </div>
+                <div class="row mb-2" style="text-align-last: left;">
+                  <div class="col-sm-6"><strong class="text-uppercase">Gotra:</strong> </div>
+                  <div class="col-sm-6">Kashya</div>
+                </div>
+                <div class="row mb-2" style="text-align-last: left;">
+                  <div class="col-sm-6"><strong class="text-uppercase">Kuldaivat:</strong> </div>
+                  <div class="col-sm-6">Khandoba(Satara)</div>
+                </div>
+                <div class="row mb-2" style="text-align-last: left;">
+                  <div class="col-sm-6"><strong class="text-uppercase">Ras Name:</strong> </div>
+                  <div class="col-sm-6">Venudas</div>
+                </div>
+                <div class="row mb-2" style="text-align-last: left;">
+                  <div class="col-sm-6"><strong class="text-uppercase">Caste:</strong> </div>
+                  <div class="col-sm-6">Hindu-Maratha</div>
+                </div>
                 <hr style="background-color:dimgray;height:2px;">
-                <ul>
-                    <li>FS20 Project</li>
-                    <li>Zone Control Unit</li>
-                    <li>SiQuote</li>
-                    <li>CET</li>
-                    <li>Panaroma</li>
-                    <li>Product Promotion Tool</li>
-                    <li>Event Management</li>
-                </ul>
               </div>
             </div>
           </div>
 
-          <div class="tab-pane  text-center " id="Education">
+          <div class="tab-pane" id="Education">
             <div class="row">
-              <div class="col-md-6 ml-auto mr-auto">
-                <hr style="background-color:dimgray;height:2px;">
-                <table>
-                  <thead>
-                      <th style="padding-right: 30px;">Passout Year</th>
-                      <th style="padding-right: 30px;"> Education Type</th>
-                      <th>School/College Name</th>
-                  </thead>
-                  <tbody>
+              <div class="col-md-6 ml-auto mr-auto shadow-lg p-4 mb-4 bg-white">
+                <div class=" card-body text-center">
+                  <div class="row mb-2" style="text-align-last: left;">
+                    <div class="col-sm-4 "><strong class="text-uppercase">Education:</strong> </div>
+                    <div class="col-sm-8 TextLeftClass">Master OF Computer Application(MCA Engineering), Pune</div>
+                  </div>
+                  <div class="row mb-2" style="text-align-last: left;">
+                    <div class="col-sm-4"><strong class="text-uppercase">Job:</strong> </div>
+                    <div class="col-sm-8 TextLeftClass">Software Engineer in Siemens Pune.</div>
+                  </div>
+                  <hr style="background-color:dimgray;height:2px;">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane text-center" id="Hobbies">
+            <div class="row">
+              <div class="col-md-10 ml-auto mr-auto clearfix shadow-lg p-4 mb-4 bg-white">
+                <div class=" card-body text-center">
+                  <div class="row mb-2" style="text-align-last: left;">
+                    <div class="col-sm-4 "><strong class="text-uppercase">Fathers Name:</strong> </div>
+                    <div class="col-sm-8"> Late. Baban Bapurao Shinde</div>
+                  </div>
+                  <div class="row mb-2" style="text-align-last: left;">
+                    <div class="col-sm-4"><strong class="text-uppercase">Mothers Name:</strong> </div>
+                    <div class="col-sm-8">Smt. Kantabai Baban Shinde (Housewife)</div>
+                  </div>
+                  <div class="row mb-2" style="text-align-last: left;">
+                    <div class="col-sm-4"><strong class="text-uppercase">Sister:</strong> </div>
+                    <div class="col-sm-8">Miss. Yogita Baban Shinde (MBA)</div>
+                  </div>
+                  <div class="row mb-2" style="text-align-last: left;">
+                    <div class="col-sm-4"><strong class="text-uppercase">Uncle:</strong> </div>
+                    <div class="col-sm-8">Mr. Sunil Bapurao Shinde (Travelling Agency)</div>
+                  </div>
+                  <div class="row mb-2" style="text-align-last: left;">
+                    <div class="col-sm-4"><strong class="text-uppercase">Mama:</strong> </div>
+                    <div class="col-sm-8">Mr. Pralhad Tulshiram Gavali (Palashi), Mr. Dattu Tulshiram Gavali(Palashi)</div>
+                  </div>
+                  <div class="row mb-2" style="text-align-last: left;">
+                    <div class="col-sm-4"><strong class="text-uppercase">Aatya:</strong> </div>
+                    <div class="col-sm-8">Mule Patil (Sanjkhed), Bhere Patil (Karajgao)</div>
+                  </div>
+                  <div class="row mb-2" style="text-align-last: left;">
+                    <div class="col-sm-4"><strong class="text-uppercase">Mavashi:</strong> </div>
+                    <div class="col-sm-8">Kale Patil (Pavari), Pandit Patil (Kavali),Rahate Patil(Vadgaon)</div>
+                  </div>
+                  <div class="row mb-2" style="text-align-last: left;">
+                    <div class="col-sm-4"><strong class="text-uppercase">Relatives:</strong> </div>
+                    <div class="col-sm-8 TextLeftClass">Thote Patil(Nakshatrvadi), Mule Patil(Gevrai),
+                       Aware Patil(Gevrai), Kale Patil(Pawari), 
+                      Pandit Patil(Kavali), Rahate Patil(Wadgaon), Jadhav Patil(Kalamshera), 
+                      Vetal Patil(Bhandegaon), Sonawane Patil(Pathri), Pachpute Patil(Palashi),
+                       Bhalekar Patil(Nipani), Pathade Patil(Varzadi)
+                    </div>
+                  <hr style="background-color:dimgray;height:2px;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        
+        <div class="tab-pane  text-center " id="Skills">
+          <div class="row">
+            <div class="col-md-6 ml-auto mr-auto shadow-lg p-4 mb-4 bg-white">
+              <hr style="background-color:dimgray;height:2px;">
+              <table>
+                <tr>
+                  <td>
+                    <table>
                       <tr>
-                          <td>2009</td>
-                          <td>Priamary Education</td>
-                          <td>Dnyanesh Vidya Mandir.Sambhajinagar</td>
-                      </tr>
-                      <tr></tr>
-                      <tr></tr>
-                      <tr>
-                          <td>2011</td>
-                          <td>Higher Secondary Education</td>
-                          <td>Mansing Pawar College,Sambhajinagar</td>
-                      </tr>
-                      <tr></tr>
-                      <tr></tr>
-                      <tr>
-                          <td>2014</td>
-                          <td>Graduation</td>
-                          <td>Vivekanand College</td>
+                        <td>Angular</td>
+                        <td>⭐⭐⭐⭐</td>
                       </tr>
                       <tr>
-                          <td>2017</td>
-                          <td>Post Graduation</td>
-                          <td>Sinhgad Institute of Management</td>
+                        <td>Web Devlopement</td>
+                        <td>⭐⭐⭐⭐⭐</td>
                       </tr>
-                  </tbody>
+                    </table>
+                  </td>
+                  <td>
+                    <table>
+                      <tr>
+                        <td>UI Devolopment</td>
+                        <td>⭐⭐⭐</td>
+                      </tr>
+                      <tr>
+                        <td>Database</td>
+                        <td>⭐⭐</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
               </table>
-              </div>
             </div>
           </div>
+        </div>
 
-          <div class="tab-pane  text-center " id="Hobbies">
-            <div class="row">
-              <div class="col-md-6 ml-auto mr-auto">
-                <hr style="background-color:dimgray;height:2px;">
-                <ol>
-                  <li>Play Badminton</li>
-                  <li>Watching Movies</li>
-                  <li>Coding</li>
-                  <li>Swimming</li>
-              </ol>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane  text-center " id="Skills">
-            <div class="row">
-              <div class="col-md-6 ml-auto mr-auto">
-                <hr style="background-color:dimgray;height:2px;">
-                <table>
-                  <tr>
-                      <td>
-                          <table>
-                              <tr>
-                                  <td>Angular</td>
-                                  <td>⭐⭐⭐⭐</td>
-                              </tr>
-                              <tr>
-                                  <td>Web Devlopement</td>
-                                  <td>⭐⭐⭐⭐⭐</td>
-                              </tr>
-                          </table>
-                      </td>
-                      <td>
-                          <table>
-                              <tr>
-                                  <td>UI Devolopment</td>
-                                  <td>⭐⭐⭐</td>
-                              </tr>
-                              <tr>
-                                  <td>Database</td>
-                                  <td>⭐⭐</td>
-                              </tr>
-                          </table>
-                      </td>
-                  </tr>
-              </table>
-              </div>
-            </div>
-          </div>
-          
-          <div class="tab-pane  text-center gallery" id="ContactMe">
-            <div class="row">
-              <div class="col-md-6 ml-auto mr-auto">
-                <hr style="background-color:dimgray;height:2px;">
-                <ul>
-                  <li>Email:karanshinde8282@gmail.com</li>
-                  <li>Mobile No.:9807456532</li>
+        <div class="tab-pane  text-center" id="ContactMe">
+          <div class="row">
+            <div class="col-md-6 ml-auto mr-auto shadow-lg p-4 mb-4 bg-white">
+              <hr style="background-color:dimgray;height:2px;">
+              <ul>
+                <li>Email:karanshinde8282@gmail.com</li>
+                <li>Mobile No.:9807456532</li>
               </ul>
-              </div>
             </div>
           </div>
-         
         </div>
       </div>
     </div>
-  </div>
-
+  </div>   
   <footer class="footer text-center ">
-    <p>footer text</p>
+      <p>footer text</p>
   </footer>
 
-
-</div>
 
 </body>
 </html>
