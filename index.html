@@ -847,22 +847,38 @@ footer p a:hover {
               </div>
             </div>
   
-            <div class="tab-pane text-center " id="PhotoGallary">
-              <div class="tab-pane text-center gallery " id="favorite">
-                <div class="row"
-                  data-animation-duration="10000">
-                  <div class="col-md-5 ml-auto">
-                    <img src="SK (6).jpg" class="rounded shadow-lg">
-                    <img src="SK (5).jpg" class="rounded shadow-lg">
-                  </div>
-                  <div class="col-md-5 mr-auto">
-                    <img src="SK (3).jpg" class="rounded shadow-lg">
-                    <img src="SK (4).jpg" class="rounded shadow-lg">
-                    <img src="SK (2).jpg" class="rounded shadow-lg">
-                  </div>
+          <div class="tab-pane text-center " id="PhotoGallary" *ngIf="isEnglish">
+            <div class="tab-pane text-center gallery " id="favorite">
+              <div class="row slider"
+                data-animation-duration="10000">
+                <div class="col-md-5 ml-auto">
+                  <img src="../../assets/SK/SK (6).jpg" class="rounded shadow-lg">
+                  <img src="../../assets/SK/SK (5).jpg" class="rounded shadow-lg">
+                </div>
+                <div class="col-md-5 mr-auto">
+                  <img src="../../assets/SK/SK (3).jpg" class="rounded shadow-lg">
+                  <img src="../../assets/SK/SK (4).jpg" class="rounded shadow-lg">
+                  <img src="../../assets/SK/SK (2).jpg" class="rounded shadow-lg">
                 </div>
               </div>
             </div>
+          </div>
+          <div class="tab-pane text-center " id="PhotoGallary" *ngIf="!isEnglish">
+            <div class="tab-pane text-center gallery " id="favorite">
+              <div class="row"
+                data-animation-duration="10000">
+                <div class="col-md-5 ml-auto">
+                  <img src="../../assets/SK/SK (6).jpg" class="rounded shadow-lg">
+                  <img src="../../assets/SK/SK (5).jpg" class="rounded shadow-lg">
+                </div>
+                <div class="col-md-5 mr-auto">
+                  <img src="../../assets/SK/SK (3).jpg" class="rounded shadow-lg">
+                  <img src="../../assets/SK/SK (4).jpg" class="rounded shadow-lg">
+                  <img src="../../assets/SK/SK (2).jpg" class="rounded shadow-lg">
+                </div>
+              </div>
+            </div>
+          </div>
             
   
             <div class="tab-pane  text-center" id="ContactMe" ng-if="isEnglish">
